@@ -24,6 +24,11 @@
 
 //_CrtSetBreakAlloc(long lBreakAlloc) //Sets a breakpoint on a specified object allocation order number (debug version only)
 
+/*
+Note:
+In principle, the value of user-defined thread event cannot be greater than 16000
+*/
+
 //Thread private data structure (for PeekEvent function)
 //---------------------------------------------------------------------------
 typedef struct STCKTHREADDLLMODULE_PEEKEVENTQUEUEDATA

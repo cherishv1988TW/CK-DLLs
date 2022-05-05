@@ -45,6 +45,8 @@ protected:
 public:
 	CKModule_IniFile(const char* pFileName);
 	~CKModule_IniFile(void);
+	bool Open(const char* pFileName);
+	bool Close();
 	bool SaveFile(); //Save data to the destination whcih specified in its constructor
 	bool SaveFileAs(const char* pFileName);
 	int ReadInteger(char* pSectionName, char* pKeyName, int iDefaultValue);

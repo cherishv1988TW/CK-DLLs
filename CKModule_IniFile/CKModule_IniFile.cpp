@@ -99,6 +99,27 @@ CKModule_IniFile::~CKModule_IniFile()
 	}
 }
 //---------------------------------------------------------------------------
+bool CKModule_IniFile::Open(const char* pFileName)
+{
+	if (hCKIniFileDLLModule == NULL) return false;
+	if (pCKIniFile != NULL)
+		pCKIniFile = CKIniFile_Close(pCKIniFile);
+	bool bReturn = true;
+	pCKIniFile = CKIniFile_Open(pFileName);
+	if (pCKIniFile == NULL)
+		return false;
+	return bReturn;
+}
+//---------------------------------------------------------------------------
+bool CKModule_IniFile::Close()
+{
+	if (hCKIniFileDLLModule == NULL) return false;
+	bool bReturn = true;
+	if (pCKIniFile != NULL)
+		pCKIniFile = CKIniFile_Close(pCKIniFile);
+	return bReturn;
+}
+//---------------------------------------------------------------------------
 bool CKModule_IniFile::SaveFile()
 {
 	if(hCKIniFileDLLModule == NULL) return false;
